@@ -1,0 +1,31 @@
+﻿<Page x:Class="LibrarianWorkplace.Pages.StatisticsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibrarianWorkplace.Pages"
+      xmlns:charts="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization" 
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="StatisticsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Name="btnBack" HorizontalAlignment="Left" Content="Вернуться" Click="btnBack_Click" Template="{StaticResource btnStyle}"></Button>
+            <Label Content="Тип диаграммы" Width="125" Margin="5" VerticalAlignment="Center"></Label>
+            <ComboBox Name="cbChart" SelectedIndex="0"  Margin="5" SelectionChanged="UpdateChart"></ComboBox>
+        </StackPanel>
+        <WindowsFormsHost Grid.Row="1" Margin="5">
+            <charts:Chart x:Name="ChartStatistics">
+                <charts:Chart.Legends>
+                    
+                </charts:Chart.Legends>
+            </charts:Chart>
+        </WindowsFormsHost>
+    </Grid>
+</Page>

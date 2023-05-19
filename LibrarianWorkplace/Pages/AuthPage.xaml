@@ -1,0 +1,43 @@
+﻿<Page x:Class="LibrarianWorkplace.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibrarianWorkplace.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="Авторизация">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <Label Name="txtAuth" Style="{StaticResource Heading}">Авторизация</Label>
+            
+            <StackPanel Width="400">
+                <Label Name="lbLogin">Логин</Label>
+                <TextBox Name="tbLogin" Template="{StaticResource tbStyle}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Width="400">
+                <Label Name="lbPassword" >Пароль</Label>
+                <PasswordBox Name="pbPassword" Template="{StaticResource pbStyle}"></PasswordBox>
+            </StackPanel>
+
+            <Button Name="btnEnter" Click="btnEnter_Click" Template="{StaticResource btnStyle}">
+                <Border>
+                    <Label Content="Войти" Name="lbEnter" HorizontalAlignment="Center" Foreground="White"></Label>
+                </Border>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
