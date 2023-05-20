@@ -29,7 +29,9 @@
         </Style>
 
         <ControlTemplate TargetType="Button" x:Key="btnStyle">
-            <Border x:Name="btnBorder" Background="#BB451F" CornerRadius="20" BorderBrush="#373838" BorderThickness="1"></Border>
+            <Border x:Name="btnBorder" Background="#BB451F" CornerRadius="20" BorderBrush="#373838" BorderThickness="1">
+                <Label Content="Войти" Name="lbEnter" HorizontalAlignment="Center" Foreground="White"></Label>
+            </Border>
 
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">

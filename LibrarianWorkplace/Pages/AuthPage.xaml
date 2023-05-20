@@ -29,14 +29,12 @@
             </StackPanel>
 
             <StackPanel Width="400">
-                <Label Name="lbPassword" >Пароль</Label>
+                <Label Name="lbPassword">Пароль</Label>
                 <PasswordBox Name="pbPassword" Template="{StaticResource pbStyle}"></PasswordBox>
             </StackPanel>
 
             <Button Name="btnEnter" Click="btnEnter_Click" Template="{StaticResource btnStyle}">
-                <Border>
-                    <Label Content="Войти" Name="lbEnter" HorizontalAlignment="Center" Foreground="White"></Label>
-                </Border>
+               
             </Button>
         </StackPanel>
     </Grid>

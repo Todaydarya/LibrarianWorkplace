@@ -27,10 +27,35 @@ namespace LibrarianWorkplace.Pages
         {
             InitializeComponent();
         }
+         /*private void importImage()
+         {
+            var image = Directory.GetFiles(@"E:\LibraryImage");
+
+            foreach (var file in image)
+            {
+                var data = file.Split('\t');
+                var tempTour = new Books
+                {
+                    Name = data[0].Replace("\"", "")
+                };
+
+                try
+                {
+                    tempTour.image = File.ReadAllBytes(image.FirstOrDefault(p => p.Contains(tempTour.Name)));
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                LibraryEntities.GetContext().Books.Add(tempTour);
+                LibraryEntities.GetContext().SaveChanges();
+            }
+         }*/
 
         private void btnProfile_Click(object sender, RoutedEventArgs e)
         {
-            NavigationClass.mainFrame.Navigate(new ProfilePage());
+            CatalogStackPanel.Visibility = Visibility.Hidden;
+            ProfileStackPanel.Visibility = Visibility.Visible;
         }
 
         private void btnDocumentation_Click(object sender, RoutedEventArgs e)
@@ -56,6 +81,12 @@ namespace LibrarianWorkplace.Pages
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnBook_Click(object sender, RoutedEventArgs e)
+        {
+            CatalogStackPanel.Visibility = Visibility.Visible;
+            ProfileStackPanel.Visibility = Visibility.Hidden;
         }
     }
 }

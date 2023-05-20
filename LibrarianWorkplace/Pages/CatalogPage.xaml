@@ -13,53 +13,109 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Height="100" Panel.ZIndex="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <Grid Height="100" Panel.ZIndex="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="400"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <TextBox Template="{StaticResource tbStyle}" HorizontalAlignment="Right" Height="50"></TextBox>
+            <Button Name="btnSearch" Grid.Column="1" Width="50" HorizontalAlignment="Left" Margin="0" Background="#FDF1ED" Click="btnSearch_Click">
+                <Image Source="../Resources/Search.png" Height="30"></Image>
+            </Button>
 
-                <TextBox Template="{StaticResource tbStyle}" HorizontalAlignment="Right" Height="50"></TextBox>
-                <Button Name="btnSearch" Grid.Column="1" Width="50" HorizontalAlignment="Left" Margin="0" Background="#FDF1ED" Click="btnSearch_Click">
-                    <Image Source="../Resources/Search.png" Height="30"></Image>
+
+            <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+
+                <Button Name="btnBook" Style="{StaticResource btnIcon}" Click="btnBook_Click">
+                    <Image Source="../Resources/Book.png" Height="50"></Image>
                 </Button>
 
+                <Button Name="btnProfile" Style="{StaticResource btnIcon}" Click="btnProfile_Click">
+                    <Image Source="../Resources/Profile.png" Height="50"></Image>
+                </Button>
 
-                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Name="btnDocumentation" Style="{StaticResource btnIcon}" Click="btnDocumentation_Click">
+                    <Image Source="../Resources/Documentation.png" Height="50"></Image>
+                </Button>
 
-                    <Button Name="btnProfile" Style="{StaticResource btnIcon}" Click="btnProfile_Click">
-                        <Image Source="../Resources/Profile.png" Height="50"></Image>
-                    </Button>
+                <Button Name="btnStatistics" Style="{StaticResource btnIcon}" Click="btnStatistics_Click">
+                    <Image Source="../Resources/Statistics.png" Height="50"></Image>
+                </Button>
 
-                    <Button Name="btnDocumentation" Style="{StaticResource btnIcon}" Click="btnDocumentation_Click">
-                        <Image Source="../Resources/Documentation.png" Height="50"></Image>
-                    </Button>
+                <Button Name="btnImport" Style="{StaticResource btnIcon}" Click="btnImport_Click">
+                    <Image Source="../Resources/import.png" Height="50"></Image>
+                </Button>
 
-                    <Button Name="btnStatistics" Style="{StaticResource btnIcon}" Click="btnStatistics_Click">
-                        <Image Source="../Resources/Statistics.png" Height="50"></Image>
-                    </Button>
+                <Button Name="btnAdd" Style="{StaticResource btnIcon}" Click="btnAdd_Click">
+                    <Image Source="../Resources/Add.png" Height="50"></Image>
+                </Button>
+            </StackPanel>
+        </Grid>
 
-                    <Button Name="btnImport" Style="{StaticResource btnIcon}" Click="btnImport_Click">
-                        <Image Source="../Resources/import.png" Height="50"></Image>
-                    </Button>
-                    
-                    <Button Name="btnAdd" Style="{StaticResource btnIcon}" Click="btnAdd_Click">
-                        <Image Source="../Resources/Add.png" Height="50"></Image>
-                    </Button>
-                    
-                </StackPanel>
-            </Grid>
-        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-
-
-
-
-        <StackPanel Grid.Row="1">
+            <!--Левая сторона-->
             
-        </StackPanel>
+            
+            
+            <!--Правая сторона-->
+            <!--Каталог-->
+            <StackPanel Grid.Column="1" Visibility="Visible" Name="CatalogStackPanel">
+                <Label Content="Название книги"/>
+                <TextBox Template="{StaticResource tbStyle}"/>
+
+                <Label Content="Автор книги"/>
+                <TextBox Template="{StaticResource tbStyle}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 20">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Год выпуска"/>
+                        <TextBox Template="{StaticResource tbStyle}" Width="100" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Статус"/>
+                        <TextBox Template="{StaticResource tbStyle}" Width="100"/>
+                    </StackPanel>
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Выдать" Template="{StaticResource btnStyle}" Margin="10 20 10 0"></Button>
+                    <Button Content="Редактировать" Template="{StaticResource btnStyle}" Margin="10 20 10 0"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Удалить" Template="{StaticResource btnStyle}" Margin="10 20 10 0"></Button>
+                    <Button Content="Сохранить" Template="{StaticResource btnStyle}" Margin="10 20 10 0"></Button>
+                </StackPanel>
+            </StackPanel>
+
+            <!--Профиль-->
+            
+            <StackPanel Grid.Column="1" Visibility="Hidden" Name="ProfileStackPanel">
+                <Label Content="ФИО"/>
+                <TextBox Template="{StaticResource tbStyle}"/>
+
+                <Label Content="Контактные данные"/>
+                <TextBox Template="{StaticResource tbStyle}"/>
+
+                <Label Content="Возраст"/>
+                <TextBox Template="{StaticResource tbStyle}"/>
+
+                <Label Content="Пол"/>
+                <TextBox Template="{StaticResource tbStyle}"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Долг" Template="{StaticResource btnStyle}"></Button>
+                    <Button Content="Сохранить" Template="{StaticResource btnStyle}"></Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
