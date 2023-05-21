@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuthHistory">
+          <Key>
+            <PropertyRef Name="idAuth" />
+          </Key>
+          <Property Name="idAuth" Type="int" Nullable="false" />
+          <Property Name="idEmployee" Type="int" Nullable="false" />
+          <Property Name="Time" Type="smalldatetime" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="Books">
           <Key>
             <PropertyRef Name="id" />
@@ -55,6 +63,20 @@
           <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="idBook" Type="int" />
         </EntityType>
+        <Association Name="FK_AuthHistory_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AuthHistory" Type="Self.AuthHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="idEmployee" />
+            </Principal>
+            <Dependent Role="AuthHistory">
+              <PropertyRef Name="idEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Books">
           <End Role="Books" Type="Self.Books" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -70,10 +92,15 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище LibraryModelContainer">
+          <EntitySet Name="AuthHistory" EntityType="Self.AuthHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AuthHistory_Employee" Association="Self.FK_AuthHistory_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="AuthHistory" EntitySet="AuthHistory" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Books" Association="Self.FK_Users_Books">
             <End Role="Books" EntitySet="Books" />
             <End Role="Users" EntitySet="Users" />
@@ -110,6 +137,7 @@
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AuthHistory" Relationship="LibraryModel.FK_AuthHistory_Employee" FromRole="Employee" ToRole="AuthHistory" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -158,7 +186,35 @@
             <End Role="Books" EntitySet="Books" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="AuthHistory" EntityType="LibraryModel.AuthHistory" />
+          <AssociationSet Name="FK_AuthHistory_Employee" Association="LibraryModel.FK_AuthHistory_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="AuthHistory" EntitySet="AuthHistory" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AuthHistory">
+          <Key>
+            <PropertyRef Name="idAuth" />
+          </Key>
+          <Property Name="idAuth" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Binary" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="idEmployee" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="LibraryModel.FK_AuthHistory_Employee" FromRole="AuthHistory" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_AuthHistory_Employee">
+          <End Type="LibraryModel.Employee" Role="Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="LibraryModel.AuthHistory" Role="AuthHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="idEmployee" />
+            </Principal>
+            <Dependent Role="AuthHistory">
+              <PropertyRef Name="idEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -216,6 +272,15 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="idBook" ColumnName="idBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuthHistory">
+            <EntityTypeMapping TypeName="LibraryModel.AuthHistory">
+              <MappingFragment StoreEntitySet="AuthHistory">
+                <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="idAuth" ColumnName="idAuth" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

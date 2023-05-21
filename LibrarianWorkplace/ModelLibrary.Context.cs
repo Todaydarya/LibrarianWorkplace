@@ -19,11 +19,10 @@ namespace LibrarianWorkplace
             : base("name=LibraryEntities")
         {
         }
-    
         private static LibraryEntities _context;
         public static LibraryEntities GetContext()
         {
-            if(_context == null)
+            if (_context == null)
                 _context = new LibraryEntities();
             return _context;
         }
@@ -36,5 +35,6 @@ namespace LibrarianWorkplace
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<AuthHistory> AuthHistory { get; set; }
     }
 }

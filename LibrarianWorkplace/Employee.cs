@@ -14,6 +14,12 @@ namespace LibrarianWorkplace
     
     public partial class Employee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            this.AuthHistory = new HashSet<AuthHistory>();
+        }
+    
         public int idEmployee { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -24,5 +30,8 @@ namespace LibrarianWorkplace
         public string Email { get; set; }
         public string login { get; set; }
         public string password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AuthHistory> AuthHistory { get; set; }
     }
 }

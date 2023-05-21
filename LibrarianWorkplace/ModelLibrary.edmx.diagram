@@ -6,10 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="890d1e011f6044d59991919fcf5725fa" Name="Diagram1">
         <EntityTypeShape EntityType="LibraryModel.Books" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.Employee" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryModel.Employee" Width="1.5" PointX="5.5" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryModel.Users" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="LibraryModel.FK_Users_Books" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LibraryModel.AuthHistory" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="LibraryModel.FK_AuthHistory_Employee" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
