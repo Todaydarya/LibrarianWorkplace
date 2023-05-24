@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <Button Name="btnBack" HorizontalAlignment="Left" Content="Вернуться" Click="btnBack_Click" Template="{StaticResource btnStyle}"></Button>
+            <Button Name="btnBack" HorizontalAlignment="Left" Content="Назад" Click="btnBack_Click" Template="{StaticResource btnStyle}"></Button>
             <Label Content="Тип диаграммы" Width="125" Margin="5" VerticalAlignment="Center"></Label>
             <ComboBox Name="cbChart" SelectedIndex="0"  Margin="5" SelectionChanged="UpdateChart"></ComboBox>
         </StackPanel>

@@ -14,7 +14,6 @@ namespace LibrarianWorkplace
     
     public partial class Users
     {
-        public int id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }
@@ -22,7 +21,6 @@ namespace LibrarianWorkplace
         public int Phone { get; set; }
         public string Email { get; set; }
         public Nullable<int> idBook { get; set; }
-    
-        public virtual Books Books { get; set; }
+        public int idUser { get; set; }
     }
 }

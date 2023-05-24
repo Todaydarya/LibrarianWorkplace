@@ -85,10 +85,20 @@
     <Compile Include="Employee.cs">
       <DependentUpon>ModelLibrary.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelLibrary.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLibrary.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelLibrary.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelLibrary.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelLibrary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLibrary.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AddEditBookPage.xaml.cs">
       <DependentUpon>AddEditBookPage.xaml</DependentUpon>
@@ -136,16 +146,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Class\NavigationClass.cs" />
-    <Compile Include="ModelLibrary.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelLibrary.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelLibrary.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelLibrary.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -196,19 +196,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="bookIcon.ico" />
     <Content Include="ModelLibrary.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelLibrary.Context.cs</LastGenOutput>
       <DependentUpon>ModelLibrary.edmx</DependentUpon>
+      <LastGenOutput>ModelLibrary.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelLibrary.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelLibrary.edmx</DependentUpon>
       <LastGenOutput>ModelLibrary.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bookIcon.ico" />
     <Resource Include="Resources\bookIcon.jpg" />
     <Resource Include="Resources\Delete.png" />
     <Resource Include="Resources\Edit.png" />

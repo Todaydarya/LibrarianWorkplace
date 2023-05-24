@@ -22,7 +22,7 @@ namespace LibrarianWorkplace.Pages
     /// </summary>
     public partial class StatisticsPage : Page
     {
-        private LibraryEntities _context = new LibraryEntities();
+        private LibraryEntitiess _context = new LibraryEntitiess();
         public StatisticsPage()
         {
             InitializeComponent();

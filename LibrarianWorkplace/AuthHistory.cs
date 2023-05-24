@@ -15,8 +15,8 @@ namespace LibrarianWorkplace
     public partial class AuthHistory
     {
         public int idAuth { get; set; }
-        public byte[] Time { get; set; }
         public int idEmployee { get; set; }
+        public System.DateTime Time { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

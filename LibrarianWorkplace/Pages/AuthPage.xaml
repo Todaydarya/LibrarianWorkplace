@@ -8,7 +8,7 @@
       d:DesignHeight="700" d:DesignWidth="1200"
       Title="Авторизация">
 
-    <Grid IsVisibleChanged="Grid_IsVisibleChanged">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
@@ -33,34 +33,33 @@
                 <PasswordBox Name="pbPassword" Template="{StaticResource pbStyle}"></PasswordBox>
             </StackPanel>
 
-            <Button Name="btnEnter" Click="btnEnter_Click" Template="{StaticResource btnStyle}"></Button>
+            <Button Name="btnEnter" Content="Войти" Click="btnEnter_Click" Template="{StaticResource btnStyle}"></Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Name="spInfo" Visibility="Hidden">
-            <Button Name="btnInfoHistory" Click="btnInfoHistory_Click"></Button>
-            <Button Name="btnInfoDeveloper" Click="btnInfoDeveloper_Click"></Button>
+            <Button Name="btnInfoHistory" Content="История" Template="{StaticResource btnStyle}" Click="btnInfoHistory_Click"></Button>
+            <Button Name="btnInfoDeveloper" Content="Об разработчике" Template="{StaticResource btnStyle}" Click="btnInfoDeveloper_Click"></Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Visibility="Hidden" Name="stHistory">
             <Grid>
-                <Grid.RowDefinitions>
+                <Grid.RowDefinitions> 
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="История входа" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"></TextBlock>
                 
-                <DataGrid Grid.Row="1" Name="dGridHistory" AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0">
+                <DataGrid Grid.Row="1" Grid.Column="1" Name="dGridHistory" AutoGenerateColumns="False" RowHeaderWidth="0">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Пользователь" Width="80*"/>
-                        <DataGridTextColumn Header="Время" Width="80*"/>
-                        <DataGridTextColumn Header="Состояние" Width="80*"/>
+                        <DataGridTextColumn Binding="{Binding Path=idAuth}" Header="Пользователь" Width="80*"/>
+                        <DataGridTextColumn Binding="{Binding Path=idEmployee}" Header="Время" Width="80*"/>
+                        <DataGridTextColumn Binding="{Binding Path=Time}" Header="Состояние" Width="80*"/>
                     </DataGrid.Columns>
-                    
                 </DataGrid>
             </Grid>
         </StackPanel>
         
-        <Button Name="btnInfo" Content="?" Grid.Column="2" Width="40" Height="40" Click="btnInfo_Click"></Button>
-        <Button Name="btnBack" Content="Назад" Grid.Column="2" Width="700" Height="40" Click="btnBack_Click" Visibility="Hidden"></Button>
+        <Button Name="btnInfo" Content="?" Grid.Column="2" Width="40" Height="40" Click="btnInfo_Click" Template="{StaticResource btnStyle}"></Button>
+        <Button Name="btnBack" Content="Назад" Grid.Column="2" Width="100" Height="40" Click="btnBack_Click" Template="{StaticResource btnStyle}" Visibility="Hidden"></Button>
     </Grid>
 </Page>

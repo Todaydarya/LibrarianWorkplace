@@ -14,21 +14,11 @@ namespace LibrarianWorkplace
     
     public partial class Books
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Books()
-        {
-            this.Users = new HashSet<Users>();
-        }
-    
-        public int id { get; set; }
         public string Name { get; set; }
         public string Author { get; set; }
         public int YearOfPublication { get; set; }
         public string InStock { get; set; }
-        public byte[] image { get; set; }
         public int Count { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public int idBook { get; set; }
     }
 }

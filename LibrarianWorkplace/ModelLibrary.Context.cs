@@ -13,17 +13,18 @@ namespace LibrarianWorkplace
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LibraryEntities : DbContext
+    public partial class LibraryEntitiess : DbContext
     {
-        public LibraryEntities()
-            : base("name=LibraryEntities")
+        public LibraryEntitiess()
+            : base("name=LibraryEntitiess")
         {
         }
-        private static LibraryEntities _context;
-        public static LibraryEntities GetContext()
+
+        private static LibraryEntitiess _context;
+        public static LibraryEntitiess GetContext()
         {
             if (_context == null)
-                _context = new LibraryEntities();
+                _context = new LibraryEntitiess();
             return _context;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -31,10 +32,10 @@ namespace LibrarianWorkplace
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AuthHistory> AuthHistory { get; set; }
         public virtual DbSet<Books> Books { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<AuthHistory> AuthHistory { get; set; }
     }
 }
